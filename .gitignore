@@ -7,6 +7,7 @@ __pycache__/
 
 # 데이터 (원본 공고 파일은 올리지 않기)
 ai1/data/raw/
+ai1/data/samples/
 
 # 에디터, OS
 .idea/
