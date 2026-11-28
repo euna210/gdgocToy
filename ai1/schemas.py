@@ -1,5 +1,6 @@
 from typing import Literal, Optional
 from pydantic import BaseModel
+from typing import Any
 
 Tag = Literal["IT/개발", "디자인", "마케팅", "경영/창업", "공학", "인문/사회", "예술/콘텐츠", "기타"]
 
@@ -31,3 +32,13 @@ class PostingOut(BaseModel):
     benefits: Optional[str] = None
     activity_period: Optional[str] = None
     extra: Optional[Extra] = None
+
+class AnalyzeRequest(BaseModel):
+    url: Optional[str] = None
+    text: Optional[str] = None
+
+class PostingResponse(PostingOut):
+    # 응답에서는 extra를 자유 형식으로 두어, 값 있는 필드만 그대로 내보냄
+    extra: Optional[dict[str, Any]] = None
+    link: Optional[str] = None
+    source_format: str = "text"
